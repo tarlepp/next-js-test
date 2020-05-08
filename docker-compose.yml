@@ -1,0 +1,12 @@
+version: '3'
+services:
+  node:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: sh -c 'yarn run dev'
+    user: $HOST_UID:$HOST_GID
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app:cached
